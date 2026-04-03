@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relicário Bolsas e Pastas LTDA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #8B4513; /* Marrom couro */
+            --secondary-color: #D4AF37; /* Dourado */
+            --accent-color: #2F4F4F; /* Verde musgo escuro */
+            --light-color: #FAF3E0; /* Bege claro */
+            --dark-color: #3E2723; /* Marrom escuro */
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--secondary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(62, 39, 35, 0.8), rgba(62, 39, 35, 0.8)), 
+                        url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            display: inline-block;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+        }
+        
+        .highlight-box {
+            background-color: white;
+            border-left: 5px solid var(--secondary-color);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .product-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            background-color: white;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .product-card .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .product-card .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .icon-feature {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            border: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .icon-feature i {
+            font-size: 35px;
+            color: var(--primary-color);
+        }
+        
+        .about-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+            color: #FFD700;
+        }
+        
+        .company-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.2);
+        }
+        
+        .btn-custom {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            transform: scale(1.05);
+        }
+        
+        .product-gallery img {
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            border: 1px solid #e0d6c2;
+        }
+        
+        .product-gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #e0d6c2;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .badge-custom {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .hero-quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--light-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-bag-heart-fill me-2"></i>Relicário
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Galeria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Elegancia e Qualidade em Cada Detalhe</h1>
+            <p class="hero-quote">"Desde 2010, criando acessórios que complementam seu estilo e acompanham sua jornada com sofisticação."</p>
+            <a href="#products" class="btn btn-custom btn-lg">Conheça Nossos Produtos</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Nossa História</h2>
+                    <p class="mb-4">A <strong>Relicário Bolsas e Pastas LTDA</strong> foi fundada em <strong>8 de março de 2010</strong> na vibrante cidade de <strong>Belo Horizonte, Minas Gerais</strong>. Com mais de uma década de experiência, nos especializamos em criar acessórios que unem funcionalidade, estilo e qualidade superior.</p>
+                    
+                    <div class="company-info">
+                        <h4 class="mb-3"><i class="bi bi-building me-2"></i>Informações Corporativas</h4>
+                        <p><strong>CNPJ:</strong> 11.650.616/0001-24</p>
+                        <p><strong>Atividade Principal:</strong> Comércio varejista de artigos do vestuário e acessórios (CNAE 47.81-4-00)</p>
+                        <p><strong>Situação Cadastral:</strong> <span class="badge badge-custom">Ativa</span></p>
+                        <p><strong>Localização:</strong> Belo Horizonte - MG</p>
+                        <p><strong>Anos no Mercado:</strong> Desde 2010</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="highlight-box">
+                        <h3 class="mb-3"><i class="bi bi-stars text-warning me-2"></i>Nosso Diferencial</h3>
+                        <p class="mb-4">Combinamos técnicas tradicionais de artesanato com design contemporâneo para criar peças únicas que refletem personalidade e elegância.</p>
+                        
+                        <h3 class="mb-3"><i class="bi bi-award text-primary me-2"></i>Compromisso com a Qualidade</h3>
+                        <p class="mb-4">Utilizamos apenas materiais premium e processos rigorosos de controle para garantir a durabilidade e beleza de cada produto.</p>
+                        
+                        <h3 class="mb-3"><i class="bi bi-heart text-danger me-2"></i>Nossa Filosofia</h3>
+                        <p>Cada bolsa, cada pasta, cada acessório que criamos carrega não apenas objetos, mas histórias, memórias e a essência de quem os carrega.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Features -->
+            <div class="row mt-5 pt-4">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="icon-feature">
+                        <i class="bi bi-gem"></i>
+                    </div>
+                    <h4>Materiais Premium</h4>
+                    <p>Couro legítimo, tecidos de alta qualidade e acabamentos impecáveis.</p>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4">
+                    <div class="icon-feature">
+                        <i class="bi bi-hand-thumbs-up"></i>
+                    </div>
+                    <h4>Artigos Duráveis</h4>
+                    <p>Produtos feitos para resistir ao uso diário mantendo sua beleza original.</p>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4">
+                    <div class="icon-feature">
+                        <i class="bi bi-person-heart"></i>
+                    </div>
+                    <h4>Design Exclusivo</h4>
+                    <p>Peças que combinam tendências atuais com um toque de exclusividade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5" style="background-color: var(--light-color);">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Nossos Produtos</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="card-header">
+                            Bolsas Femininas
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Bolsas Femininas">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">Coleção Feminina</h5>
+                            <p class="card-text">Bolsas elegantes para todos os momentos, do dia a dia às ocasiões especiais.</p>
+                            <ul class="feature-list">
+                                <li><i class="bi bi-check-circle"></i> Bolsas de couro legítimo</li>
+                                <li><i class="bi bi-check-circle"></i> Modelos para trabalho e lazer</li>
+                                <li><i class="bi bi-check-circle"></i> Variedade de cores e tamanhos</li>
+                                <li><i class="bi bi-check-circle"></i> Acabamentos detalhados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="card-header">
+                            Pastas Executivas
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1622460240317-9e5c0e8b9b9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Pastas Executivas">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">Linha Executiva</h5>
+                            <p class="card-text">Pastas e portfólios profissionais que transmitem sofisticação e organização.</p>
+                            <ul class="feature-list">
+                                <li><i class="bi bi-check-circle"></i> Pastas para documentos</li>
+                                <li><i class="bi bi-check-circle"></i> Portfólios executivos</li>
+                                <li><i class="bi bi-check-circle"></i> Organizadores para laptop</li>
+                                <li><i class="bi bi-check-circle"></i> Design profissional</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <div class="card-header">
+                            Acessórios Diversos
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1591561954555-607968c13a0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Acessórios">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">Complementos</h5>
+                            <p class="card-text">Carteiras, necessaires e outros acessórios para completar seu estilo.</p>
+                            <ul class="feature-list">
+                                <li><i class="bi bi-check-circle"></i> Carteiras de couro</li>
+                                <li><i class="bi bi-check-circle"></i> Necessaires práticas</li>
+                                <li><i class="bi bi-check-circle"></i> Cintos e cinturões</li>
+                                <li><i class="bi bi-check-circle"></i> Peças em edição limitada</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Nossa Galeria</h2>
+            
+            <div class="row product-gallery g-3">
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid" alt="Bolsas de Couro">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid" alt="Pastas Executivas">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid" alt="Acessórios em Detalhe">
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <p class="lead">Cada peça é cuidadosamente criada para oferecer beleza, funcionalidade e durabilidade.</p>
+                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#galleryModal">
+                    <i class="bi bi-images me-2"></i>Ver Catálogo Completo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5" style="background-color: white;">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Fale Conosco</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-info mb-4">
+                        <h4 class="mb-3"><i class="bi bi-geo-alt-fill text-primary me-2"></i>Endereço</h4>
+                        <p>Belo Horizonte, Minas Gerais, Brasil</p>
+                    </div>
+                    
+                    <div class="contact-info mb-4">
+                        <h4 class="mb-3"><i class="bi bi-telephone-fill text-primary me-2"></i>Telefone</h4>
+                        <p>(31) 3333-4444</p>
+                    </div>
+                    
+                    <div class="contact-info mb-4">
+                        <h4 class="mb-3"><i class="bi bi-envelope-fill text-primary me-2"></i>E-mail</h4>
+                        <p>contato@relicariobolsas.com.br</p>
+                    </div>
+                    
+                    <div class="contact-info mb-4">
+                        <h4 class="mb-3"><i class="bi bi-clock-fill text-primary me-2"></i>Horário de Atendimento</h4>
+                        <p>Segunda a Sexta: 9h às 18h</p>
+                        <p>Sábado: 9h às 13h</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h4 class="mb-3"><i class="bi bi-truck text-primary me-2"></i>Entregas</h4>
+                        <p>Enviamos para todo o Brasil</p>
+                        <p>Retirada disponível em nossa loja física</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Assunto</label>
+                            <select class="form-select" id="subject">
+                                <option selected>Selecione um assunto</option>
+                                <option value="product">Informações sobre produtos</option>
+                                <option value="order">Status de pedido</option>
+                                <option value="wholesale">Atacado/Revenda</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mensagem</label>
+                            <textarea class="form-control" id="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="mb-3"><i class="bi bi-bag-heart-fill me-2"></i>Relicário Bolsas e Pastas LTDA</h5>
+                    <p>Elegancia e qualidade desde 2010.</p>
+                    <p>CNPJ: 11.650.616/0001-24</p>
+                    <p>Belo Horizonte - MG</p>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5 class="mb-3">Navegação</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#products">Produtos</a></li>
+                        <li><a href="#gallery">Galeria</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5 class="mb-3">Conecte-se Conosco</h5>
+                    <div class="d-flex mb-3">
+                        <a href="#" class="me-3 text-secondary fs-4"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="me-3 text-secondary fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="me-3 text-secondary fs-4"><i class="bi bi-whatsapp"></i></a>
+                        <a href="#" class="text-secondary fs-4"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                    <p class="mb-2">Assine nossa newsletter</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Seu e-mail">
+                        <button class="btn btn-outline-light" type="button">Inscrever</button>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-3">
+            
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="mb-0">© 2023 Relicário Bolsas e Pastas LTDA. Todos os direitos reservados.</p>
+                    <p class="small mt-2">Desenvolvido com paixão por acessórios que fazem a diferença no seu dia a dia.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Gallery -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="galleryModalLabel">Catálogo Completo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Explore nossa coleção completa de bolsas, pastas e acessórios. Em um site real, aqui estaria nosso catálogo completo organizado por categorias.</p>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="img-fluid" alt="Coleção Outono/Inverno">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="https://images.unsplash.com/photo-1591561954555-607968c13a0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="img-fluid" alt="Linha Executiva">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="img-fluid" alt="Bolsas de Couro">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h6>Nossas Coleções</h6>
+                        <ul>
+                            <li>Bolsas Femininas - Coleção Primavera/Verão</li>
+                            <li>Pastas Executivas - Linha Professional</li>
+                            <li>Acessórios - Edição Limitada</li>
+                            <li>Bolsas de Noite - Coleção Festiva</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-custom">Solicitar Catálogo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado pelo seu contato! Em breve retornaremos sua mensagem.');
+            this.reset();
+        });
+        
+        // Newsletter subscription
+        document.querySelector('.btn-outline-light').addEventListener('click', function() {
+            const emailInput = this.parentElement.querySelector('input[type="email"]');
+            if(emailInput.value && emailInput.value.includes('@')) {
+                alert('Obrigado por se inscrever em nossa newsletter!');
+                emailInput.value = '';
+            } else {
+                alert('Por favor, insira um e-mail válido.');
+            }
+        });
+    </script>
+</body>
+</html>
